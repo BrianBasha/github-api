@@ -11,11 +11,30 @@ export const filterReposWithKeyword = (
 };
 
 //Converts the Github api response to an array with only the repository name, owner login and repository url
-export const cleanResponse = (
+export const formatResponse = (
   response: OctokitResponse<any>,
   keyword: string,
 ) => {
   const reposArray: UserRepository[] = response.data.map((repo: any) => {
+    return {
+      repositoryName: repo.name,
+      ownerLogin: repo.owner.login,
+      repositoryUrl: repo.url,
+    };
+  });
+  return filterReposWithKeyword(keyword, reposArray);
+};
+
+//Converts the Github api response to an array with only the repository name, owner login and repository url
+export const formatHttpResponse = (
+  response: {
+    name: string;
+    owner: { login: string };
+    url: string;
+  }[],
+  keyword: string,
+) => {
+  const reposArray: UserRepository[] = response.map((repo: any) => {
     return {
       repositoryName: repo.name,
       ownerLogin: repo.owner.login,

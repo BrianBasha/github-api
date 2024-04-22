@@ -7,7 +7,7 @@ npm run start
 
 This api has two GET endpoint: http://localhost:3000/github/repositories and http://localhost:3000/github/repositories-http which fetch all your repositories from the github api and filters them by checking if the repository name contains the keyword specified in the request(case insensitive).
 
-The first endpoing (http://localhost:3000/github/repositories) utilizes Octokit which is the official sdk for the github api, and requires two parameters in the request body in the following format:
+The first endpoint (http://localhost:3000/github/repositories) utilizes Octokit which is the official sdk for the github api, and requires two parameters in the request body in the following format:
 
 ```
 {
@@ -16,7 +16,7 @@ The first endpoing (http://localhost:3000/github/repositories) utilizes Octokit 
 }
 ```
 
-The second endpoing (http://localhost:3000/github/repositories-http) uses a normal http request, and requires three parameters in the request body in the following format:
+The second endpoint (http://localhost:3000/github/repositories-http) uses a normal http request, and requires three parameters in the request body in the following format:
 
 ```
 {
